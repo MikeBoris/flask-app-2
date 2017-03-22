@@ -1,0 +1,44 @@
+<html>
+<head>
+<link rel="stylesheet" href="static/basic.css" type="text/css">
+</head>
+<body>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: {
+     equationNumbers: {  autoNumber: "AMS"  },
+     extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "color.js"]
+  }
+});
+</script>
+<script type="text/javascript"
+ src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+This web page visualizes the function \(
+u(t) = Ae^{-bt}\sin (w t), \hbox{ for } t\in [0,T]
+\).
+
+<br>
+<br>
+
+<form method="post" action="">
+	<table>
+		{% for field in form %}
+		<tr>
+			<td class="name">{{ field.name }}</td><td>{{ field }}</td>
+			<td>{{ field.label }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+	<p><input type="submit" value="Compute">
+	</form>
+	</p>
+
+	<p>
+		{% if result != None %}
+		<img src="{{ result }}" width="500">
+		{% endif %}
+	</p>
+</body>
+</html>
